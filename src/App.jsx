@@ -12,6 +12,13 @@ export const App = () => {
   const onChangeTodoText = (e) => setTodoText(e.target.value);
   const onClickAdd = (e) => {
     if (todoText === "") return;
+    if (
+      incompleteTodos.indexOf(todoText) !== -1 ||
+      completeTodos.indexOf(todoText) !== -1
+    ) {
+      alert("同名のタスクが既に存在します");
+      return;
+    }
     setIncompleteTodos([...incompleteTodos, todoText]);
     setTodoText("");
   };
