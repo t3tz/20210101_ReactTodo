@@ -8,6 +8,7 @@ export const App = () => {
   const [todoText, setTodoText] = useState("");
   const [incompleteTodos, setIncompleteTodos] = useState([]);
   const [completeTodos, setComplateTodos] = useState([]);
+  const [warning, setWarning] = useState("");
 
   const onChangeTodoText = (e) => setTodoText(e.target.value);
   const onClickAdd = (e) => {
@@ -16,11 +17,12 @@ export const App = () => {
       incompleteTodos.indexOf(todoText) !== -1 ||
       completeTodos.indexOf(todoText) !== -1
     ) {
-      alert("同名のタスクが既に存在します");
+      setWarning("同名のタスクが既に存在します");
       return;
     }
     setIncompleteTodos([...incompleteTodos, todoText]);
     setTodoText("");
+    setWarning("");
   };
   const onClickDelete = (index) => {
     setIncompleteTodos(incompleteTodos.filter((x, i) => i !== index));
@@ -41,6 +43,7 @@ export const App = () => {
         onChange={onChangeTodoText}
         onClick={onClickAdd}
       />
+      <p style={{ color: "red" }}>{warning}</p>
       <IncompleteTodo
         incompleteTodos={incompleteTodos}
         onClickComplete={onClickComplete}
