@@ -15,8 +15,11 @@ export const InputTodo = (props) => {
         placeholder="TODOを入力"
         value={props.todoText}
         onChange={props.onChange}
+        disabled={props.disabled}
       />
-      <button onClick={props.onClick}>追加</button>
+      <button onClick={props.onClick} disabled={props.disabled}>
+        追加
+      </button>
     </div>
   );
 };
