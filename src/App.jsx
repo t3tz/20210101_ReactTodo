@@ -6,8 +6,8 @@ import { CompleteTodo } from "./components/CompleteTodo";
 
 export const App = () => {
   const [todoText, setTodoText] = useState("");
-  const [incompleteTodos, setIncompleteTodos] = useState(["aaaaaa", "bbbbbb"]);
-  const [completeTodos, setComplateTodos] = useState(["cccc"]);
+  const [incompleteTodos, setIncompleteTodos] = useState([]);
+  const [completeTodos, setComplateTodos] = useState([]);
 
   const onChangeTodoText = (e) => setTodoText(e.target.value);
   const onClickAdd = (e) => {
